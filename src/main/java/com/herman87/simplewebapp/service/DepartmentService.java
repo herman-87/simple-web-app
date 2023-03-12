@@ -9,4 +9,7 @@ public interface DepartmentService {
     Department createDepartment(Department department);
     List<Department> getAllDepartments();
     Optional<Department> getDepartmentById(Long departmentId);
+    void deleteDepartmentById(Long id);
+    Department updateDepartment(Long id, Department department);
+
 }
