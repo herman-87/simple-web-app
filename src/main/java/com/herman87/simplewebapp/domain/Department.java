@@ -1,8 +1,11 @@
 package com.herman87.simplewebapp.domain;
 
-import org.hibernate.validator.constraints.Length;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -14,7 +17,7 @@ public class Department {
     @Column(name = "c_id", nullable = false)
     private Long id;
     @NotBlank(message = "Please enter the department name")
-    @Size(max = 4, min = 2)
+//    @Size(max = 4, min = 2)
     @Column(name = "c_name")
     private String name;
     @Column(name = "c_address")
