@@ -1,10 +1,12 @@
 package com.herman87.simplewebapp.service;
 
 import com.herman87.simplewebapp.domain.Department;
+import com.herman87.simplewebapp.error.DepartmentNotFoundException;
 import com.herman87.simplewebapp.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -25,8 +27,12 @@ public class DepartmentServiceImpl implements DepartmentService{
     }
 
     @Override
-    public Optional<Department> getDepartmentById(Long departmentId) {
-        return departmentRepository.findById(departmentId);
+    public Department getDepartmentById(Long departmentId) throws DepartmentNotFoundException {
+        Optional<Department> department = departmentRepository.findById(departmentId);
+        if (department.isEmpty()) {
+            throw new DepartmentNotFoundException("Department is available");
+        }
+        return department.get();
     }
 
     @Override
