@@ -45,8 +45,8 @@ public class DepartmentServiceImpl implements DepartmentService{
         Department departmentToUpdate = departmentRepository.findById(id).orElseThrow();
 
         String address = department.getAddress();
-        String name = department.getAddress();
-        String code = department.getAddress();
+        String name = department.getName();
+        String code = department.getCode();
 
         if (Objects.nonNull(address)) {
             departmentToUpdate.setAddress(address);
