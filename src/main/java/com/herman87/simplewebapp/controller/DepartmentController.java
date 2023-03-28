@@ -7,16 +7,22 @@ import com.herman87.simplewebapp.service.DepartmentServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 public class DepartmentController implements DepartmentService {
+    private final Logger logger = LoggerFactory.getLogger(DepartmentController.class);
     @Autowired
     private DepartmentServiceImpl departmentServiceImpl;
-    private final Logger logger = LoggerFactory.getLogger(DepartmentController.class);
 
     @Override
     @PostMapping("/department")
@@ -51,5 +57,11 @@ public class DepartmentController implements DepartmentService {
             @RequestBody Department department
     ) {
         return departmentServiceImpl.updateDepartment(id, department);
+    }
+
+    @Override
+    @GetMapping("/department/name/{name}")
+    public Department getDepartmentByName(@PathVariable String name) throws DepartmentNotFoundException{
+        return departmentServiceImpl.getDepartmentByName(name);
     }
 }

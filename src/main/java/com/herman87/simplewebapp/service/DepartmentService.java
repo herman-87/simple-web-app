@@ -11,5 +11,6 @@ public interface DepartmentService {
     Department getDepartmentById(Long departmentId) throws DepartmentNotFoundException;
     void deleteDepartmentById(Long id);
     Department updateDepartment(Long id, Department department);
+    Department getDepartmentByName(String name) throws DepartmentNotFoundException;
 
 }

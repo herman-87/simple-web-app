@@ -6,13 +6,12 @@ import com.herman87.simplewebapp.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
+public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
     private DepartmentRepository departmentRepository;
 
@@ -58,5 +57,11 @@ public class DepartmentServiceImpl implements DepartmentService{
             departmentToUpdate.setCode(code);
         }
         return departmentRepository.save(departmentToUpdate);
+    }
+
+    @Override
+    public Department getDepartmentByName(String name) throws DepartmentNotFoundException {
+        return departmentRepository.findDepartmentByNameIgnoreCase(name)
+                .orElseThrow(() -> new DepartmentNotFoundException("No Department with the name available"));
     }
 }
