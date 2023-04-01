@@ -105,7 +105,7 @@ class DepartmentServiceImplTest {
 
     @Test
     @DisplayName("Get Department by username successfully")
-    void getDepartmentByNameTest() throws DepartmentNotFoundException{
+    void getDepartmentByNameTest() throws DepartmentNotFoundException {
         String username = "user name1";
         when(departmentRepository.findDepartmentByNameIgnoreCase(username))
                 .thenReturn(Optional.of(department1));
