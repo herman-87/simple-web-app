@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.herman87</groupId>
 	<artifactId>simple-web-app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>simple-web-app</name>
 	<description>Demo spring simple web app</description>
 	<properties>
