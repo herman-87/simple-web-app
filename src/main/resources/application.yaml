@@ -13,13 +13,14 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     url: jdbc:mysql://localhost:3306/db_demo
-    password: azerty1234
+    password: Les4eclairs
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: 'true'
 welcome:
   message: Welcome to herman87 code !!
+
 
 ---
 
@@ -27,15 +28,22 @@ spring:
   profiles: qa
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
+    username: herman87
     url: jdbc:mysql://localhost:3306/db_demo-qa
-    password: azerty1234
+    password: Les4eclairs
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: 'true'
 welcome:
   message: Welcome to herman87 code !!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
 
 ---
 
